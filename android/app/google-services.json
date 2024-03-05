@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "753139647242",
+    "project_id": "flutter-memoneet",
+    "storage_bucket": "flutter-memoneet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753139647242:android:9bc2cb6838d2ba7c7c30f3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_memoneet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0pSx_kKa3GPxZljTeWGlmFvwaELy9HiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

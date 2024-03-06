@@ -4,10 +4,8 @@ import 'package:flutter_memoneet/model/Note.dart';
 import 'package:flutter_memoneet/viewmodel/AuthViewModel.dart';
 import 'package:flutter_memoneet/viewmodel/DataViewModel.dart';
 import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_memoneet/viewmodel/AuthViewModel.dart';
 
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key});
 
@@ -19,15 +20,27 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Login',
+          style:TextStyle(color: Colors.white) ,),
+        backgroundColor: Colors.blue, // Change the app bar color
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10,bottom: 30),
+              child: Container(
+                child: Image.asset('assets/logo.png',
+                  width: 200, // Adjust width as needed
+                  height: 200, // Adjust height as needed
+                  fit: BoxFit.contain, )
+              ),
+            ),
             TextField(
               onChanged: (value) => email = value,
               decoration: InputDecoration(
@@ -47,9 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
             ),
             if (showError)
-              Text(
-                errorMessage,
-                style: TextStyle(color: Colors.red),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  errorMessage,
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -85,9 +101,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         });
                       }
                     },
-              child: isLoggingIn ? CircularProgressIndicator() : Text('Login'),
+              child: isLoggingIn ? CircularProgressIndicator() : Text('Login',style: TextStyle(fontSize: 16,color: Colors.white),
+              ),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 15),
+                padding: EdgeInsets.symmetric(vertical: 15),backgroundColor: Colors.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -99,7 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Navigate to signup screen
                 Navigator.pushNamed(context, '/signup');
               },
-              child: Text('Don\'t have an account? Sign Up'),
+              child: Text(
+                'Don\'t have an account? Sign Up',
+                style: TextStyle(color: Colors.blue), // Change the text color
+              ),
             ),
           ],
         ),
@@ -107,3 +127,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

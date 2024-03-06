@@ -21,15 +21,30 @@ class _SignupScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text('Sign Up',
+        style:TextStyle(color: Colors.white) ,),
+      leading: BackButton(
+        color: Colors.white,
+      ),
+      backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10,bottom: 30),
+              child: Container(
+                  child: Image.asset('assets/logo.png',
+                    width: 200, // Adjust width as needed
+                    height: 200, // Adjust height as needed
+                    fit: BoxFit.contain, )
+              ),
+            ),
             TextField(
               onChanged: (value) => email = value,
               decoration: InputDecoration(
@@ -49,9 +64,12 @@ class _SignupScreenState extends State<SignUpScreen> {
               obscureText: true,
             ),
             if (showError)
-              Text(
-                errorMessage,
-                style: TextStyle(color: Colors.red),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  errorMessage,
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -83,12 +101,13 @@ class _SignupScreenState extends State<SignUpScreen> {
                 }
               },
               child:
-                  isSigningUp ? CircularProgressIndicator() : Text('Sign Up'),
+                  isSigningUp ? CircularProgressIndicator() : Text('Sign Up', style: TextStyle(fontSize: 16,color: Colors.white),
+                  ),
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 15),
+                padding: EdgeInsets.symmetric(vertical: 15), backgroundColor: Colors.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                ),
+                ), // Change the button color
               ),
             ),
             SizedBox(height: 20),
@@ -97,7 +116,8 @@ class _SignupScreenState extends State<SignUpScreen> {
                 // Navigate to login screen
                 Navigator.pop(context);
               },
-              child: Text('Already have an account? Login'),
+              child: Text('Already have an account? Login',
+                style: TextStyle(color: Colors.blue),),
             ),
           ],
         ),
